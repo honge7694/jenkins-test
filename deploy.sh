@@ -16,7 +16,7 @@ if [ "$(docker ps -q -f name=${CONTAINER_NAME})" ]; then
 fi
 
 # 이전에 존재하는 이미지 삭제
-if [ "$(docker iamges -q ${IMAGE_NAME})" ]; then
+if [ "$(docker images -q ${IMAGE_NAME})" ]; then
   echo "기존의 이미지를 삭제합니다."
   docker rmi ${IMAGE_NAME}
 fi
@@ -30,7 +30,7 @@ echo "Starting new container..."
 docker run -d --name ${CONTAINER_NAME} -p ${PORT}:8080 ${IMAGE_NAME}
 
 # 배포 상태 확인
-if [ "$(docker ps -q -f name=${CONTAINER_NAME})" ];
+if [ "$(docker ps -q -f name=${CONTAINER_NAME})" ]; then
   echo "배포 성공! 어플리케이션 실행합니다. PORT : ${PORT}"
 else
   echo "배포 실패"
