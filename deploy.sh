@@ -21,6 +21,9 @@ if [ "$(docker images -q ${IMAGE_NAME})" ]; then
   docker rmi ${IMAGE_NAME}
 fi
 
+# JAR 파일을 현재 디렉토리로 복사
+cp /home/ubuntu/build/libs/${JAR_FILE} .
+
 # Docker 이미지를 빌드
 echo "Building new Docker Image..."
 docker build -t ${IMAGE_NAME} --build-arg JAR_FILE=${JAR_FILE} .
@@ -36,8 +39,3 @@ else
   echo "배포 실패"
   exit 1
 fi
-
-
-
-
-
