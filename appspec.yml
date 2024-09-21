@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: /code-deploy
+  - source: /code-deploy/
     destination: /home/ubuntu
     overwrite: yes
 
