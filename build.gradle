@@ -6,9 +6,10 @@ plugins {
 
 group = 'com.test'
 version = '0.0.1-SNAPSHOT'
+apply plugin: 'war'
 
-jar {
-	enabled = false
+bootWar {
+	archiveName("demo.war")
 }
 
 java {
@@ -29,6 +30,7 @@ repositories {
 }
 
 dependencies {
+	providedCompile 'org.springframework.boot:spring-boot-starter-tomcat'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
