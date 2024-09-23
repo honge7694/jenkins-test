@@ -4,8 +4,8 @@ cd /home/ubuntu
 
 DOCKER_APP_NAME=ec2-application
 IMAGE_NAME=cms-app-image
-CONTAINER_NAME1=ubuntu-nginx-1
-CONTAINER_NAME2=ubuntu-docker-springboot-1
+CONTAINER_NAME1=nginx-container
+CONTAINER_NAME2=springboot-container
 PORT=8080
 JAR_FILE="cms-0.0.1-SNAPSHOT.jar"
 NGINX_CONF="nginx.conf"
@@ -28,7 +28,7 @@ echo "Docker Compose로 새로운 이미지 빌드 및 컨테이너 실행 중..
 docker-compose up --build -d
 
 # 배포 상태 확인
-if [ "$(docker ps -q -f name=${CONTAINER_NAME1})" ] && [ "$(docker ps -q -f name={CONTAINER_NAME2})" ]; then
+if [ "$(docker ps -q -f name=${CONTAINER_NAME1})" ] && [ "$(docker ps -q -f name=${CONTAINER_NAME2})" ]; then
   echo "배포 성공! 어플리케이션이 실행 중입니다. PORT : ${PORT}"
 else
   echo "배포 실패"

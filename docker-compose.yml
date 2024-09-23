@@ -1,6 +1,7 @@
 version: "3"
 services:
   nginx:
+    container_name: nginx-container
     build:
       context: ./nginx
       dockerfile: nginx_Dockerfile
@@ -9,6 +10,7 @@ services:
     depends_on:
       - docker-springboot
   docker-springboot:
+    container_name: springboot-container
     build: .
     expose:
       - 8080
